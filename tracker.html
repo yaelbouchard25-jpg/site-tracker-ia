@@ -594,9 +594,9 @@
         </form>
 
         <div id="outputContainer" class="output-container">
-            <div class="output-title">📋 Rapport ASRM généré</div>
+            <div class="output-title">📋 Rapport ASRM généré (Format JSON)</div>
             <div id="outputText" class="output-text"></div>
-            <button id="copyBtn" class="copy-btn">📋 Copier pour Telegram</button>
+            <button id="copyBtn" class="copy-btn">📋 Copier JSON</button>
         </div>
     </div>
 
@@ -727,10 +727,10 @@
         document.getElementById('copyBtn').addEventListener('click', function() {
             const text = document.getElementById('outputText').textContent;
             navigator.clipboard.writeText(text).then(() => {
-                this.textContent = '✅ Copié !';
+                this.textContent = '✅ JSON Copié !';
                 this.classList.add('copied');
                 setTimeout(() => {
-                    this.textContent = '📋 Copier pour Telegram';
+                    this.textContent = '📋 Copier JSON';
                     this.classList.remove('copied');
                 }, 2000);
             });
@@ -739,18 +739,18 @@
         function generateText() {
             const data = {
                 date: document.getElementById('date').value,
-                sensationReveil: document.getElementById('sensationReveil').value,
-                fatigue: document.getElementById('fatigue').value,
-                douleurs: document.getElementById('douleurs').value,
-                stress: document.getElementById('stress').value,
-                clarteMentale: document.getElementById('clarteMentale').value,
-                energiePhysique: document.getElementById('energiePhysique').value,
-                humeur: document.getElementById('humeur').value,
-                irritabilite: document.getElementById('irritabilite').value,
-                motivationAviron: document.getElementById('motivationAviron').value,
-                motivationBusiness: document.getElementById('motivationBusiness').value,
-                qualiteInteractions: document.getElementById('qualiteInteractions').value,
-                rpe: document.getElementById('rpe').value,
+                sensationReveil: parseInt(document.getElementById('sensationReveil').value),
+                fatigue: parseInt(document.getElementById('fatigue').value),
+                douleurs: parseInt(document.getElementById('douleurs').value),
+                stress: parseInt(document.getElementById('stress').value),
+                clarteMentale: parseInt(document.getElementById('clarteMentale').value),
+                energiePhysique: parseInt(document.getElementById('energiePhysique').value),
+                humeur: parseInt(document.getElementById('humeur').value),
+                irritabilite: parseInt(document.getElementById('irritabilite').value),
+                motivationAviron: parseInt(document.getElementById('motivationAviron').value),
+                motivationBusiness: parseInt(document.getElementById('motivationBusiness').value),
+                qualiteInteractions: parseInt(document.getElementById('qualiteInteractions').value),
+                rpe: parseInt(document.getElementById('rpe').value),
                 problemsBusiness: document.getElementById('problemsBusiness').value,
                 tempsPerdu: document.getElementById('tempsPerdu').value,
                 repasDejeuner: document.getElementById('repasDejeuner').value,
@@ -759,75 +759,63 @@
                 commentaires: document.getElementById('commentaires').value
             };
 
+            // Collecter les séances de sport
             const sportEntries = document.querySelectorAll('.sport-entry');
-            let seanceText = '';
+            const seances = [];
             sportEntries.forEach((entry, index) => {
                 const type = entry.querySelector('.typeSport').value;
-                const duree = entry.querySelector('.dureeSport').value || 0;
-                const intensite = entry.querySelector('.intensite').value;
-                seanceText += `\n🏃 Séance ${index + 1}: ${type} - ${duree}min - Intensité: ${intensite}/10`;
+                const duree = parseInt(entry.querySelector('.dureeSport').value) || 0;
+                const intensite = parseInt(entry.querySelector('.intensite').value);
+                seances.push({
+                    numero: index + 1,
+                    type: type,
+                    duree: duree,
+                    intensite: intensite
+                });
             });
 
-            const formattedText = `📊 RAPPORT ASRM - ${data.date}
+            // Créer l'objet JSON structuré
+            const jsonData = {
+                date: data.date,
+                sport: {
+                    seances: seances,
+                    effortPercu: data.rpe
+                },
+                sommeil: {
+                    sensationReveil: data.sensationReveil
+                },
+                etatPhysique: {
+                    fatigue: data.fatigue,
+                    douleurs: data.douleurs
+                },
+                etatMental: {
+                    stress: data.stress,
+                    clarteMentale: data.clarteMentale,
+                    energiePhysique: data.energiePhysique,
+                    humeur: data.humeur,
+                    irritabilite: data.irritabilite,
+                    motivationAviron: data.motivationAviron,
+                    motivationBusiness: data.motivationBusiness
+                },
+                business: {
+                    problemesRencontres: data.problemsBusiness || '',
+                    tempsPerdu: data.tempsPerdu || ''
+                },
+                relations: {
+                    qualiteInteractions: data.qualiteInteractions
+                },
+                nutrition: {
+                    repasDejeuner: data.repasDejeuner || '',
+                    repasSoir: data.repasSoir || '',
+                    heureRepasSoir: data.heureRepasSoir || ''
+                },
+                commentaires: data.commentaires || ''
+            };
 
-━━━━━━━━━━━━━━━━━━━━━━━━
-🏋️ SPORT
-━━━━━━━━━━━━━━━━━━━━━━━━${seanceText}
+            // Convertir en JSON formaté
+            const formattedJSON = JSON.stringify(jsonData, null, 2);
 
-📊 Effort perçu dernière séance: ${data.rpe}/10
-
-━━━━━━━━━━━━━━━━━━━━━━━━
-😴 SOMMEIL
-━━━━━━━━━━━━━━━━━━━━━━━━
-✨ Sensation au réveil: ${data.sensationReveil}/10
-
-━━━━━━━━━━━━━━━━━━━━━━━━
-💪 ÉTAT PHYSIQUE
-━━━━━━━━━━━━━━━━━━━━━━━━
-⚡ Fatigue: ${data.fatigue}/10
-💢 Douleurs/Courbatures: ${data.douleurs}/10
-
-━━━━━━━━━━━━━━━━━━━━━━━━
-🧠 ÉTAT MENTAL & ÉNERGIE
-━━━━━━━━━━━━━━━━━━━━━━━━
-😰 Stress: ${data.stress}/10
-🧠 Clarté mentale: ${data.clarteMentale}/10
-⚡ Énergie physique: ${data.energiePhysique}/10
-😊 Humeur: ${data.humeur}/10
-😤 Irritabilité: ${data.irritabilite}/10
-🚣 Motivation aviron: ${data.motivationAviron}/10
-💼 Motivation business: ${data.motivationBusiness}/10
-
-━━━━━━━━━━━━━━━━━━━━━━━━
-💼 BUSINESS
-━━━━━━━━━━━━━━━━━━━━━━━━
-🔴 Problèmes rencontrés:
-${data.problemsBusiness || 'Aucun problème'}
-
-⏰ Temps perdu sur:
-${data.tempsPerdu || 'Rien à signaler'}
-
-━━━━━━━━━━━━━━━━━━━━━━━━
-👥 RELATIONS
-━━━━━━━━━━━━━━━━━━━━━━━━
-💬 Qualité des interactions: ${data.qualiteInteractions}/10
-
-━━━━━━━━━━━━━━━━━━━━━━━━
-🍽️ NUTRITION
-━━━━━━━━━━━━━━━━━━━━━━━━
-📋 Repas déjeuner (12h00):
-${data.repasDejeuner || 'Non renseigné'}
-
-🍴 Repas du soir:
-${data.repasSoir || 'Non renseigné'}
-🕐 Terminé à: ${data.heureRepasSoir || 'Non renseigné'}
-
-━━━━━━━━━━━━━━━━━━━━━━━━
-📝 COMMENTAIRES
-━━━━━━━━━━━━━━━━━━━━━━━━
-${data.commentaires || 'Aucun commentaire'}`;
-
-            document.getElementById('outputText').textContent = formattedText;
+            document.getElementById('outputText').textContent = formattedJSON;
             document.getElementById('outputContainer').classList.add('show');
             document.getElementById('outputContainer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
