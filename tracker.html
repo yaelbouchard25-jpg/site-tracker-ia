@@ -405,6 +405,10 @@
                                 <div class="slider-hint intensiteHint">Modéré</div>
                             </div>
                         </div>
+                        <div class="field">
+                            <label>Commentaires sur cette séance</label>
+                            <textarea class="commentaireSport" placeholder="Notes, sensations, observations sur cette séance..."></textarea>
+                        </div>
                     </div>
                 </div>
                 <button type="button" class="add-sport-btn" onclick="addSportEntry()">➕ Ajouter une autre séance</button>
@@ -714,6 +718,10 @@
                         <div class="slider-hint intensiteHint">Modéré</div>
                     </div>
                 </div>
+                <div class="field">
+                    <label>Commentaires sur cette séance</label>
+                    <textarea class="commentaireSport" placeholder="Notes, sensations, observations sur cette séance..."></textarea>
+                </div>
                 <button type="button" class="remove-sport-btn" onclick="this.closest('.sport-entry').remove()">🗑️ Supprimer cette séance</button>
             `;
             container.appendChild(newEntry);
@@ -766,11 +774,13 @@
                 const type = entry.querySelector('.typeSport').value;
                 const duree = parseInt(entry.querySelector('.dureeSport').value) || 0;
                 const intensite = parseInt(entry.querySelector('.intensite').value);
+                const commentaire = entry.querySelector('.commentaireSport').value || '';
                 seances.push({
                     numero: index + 1,
                     type: type,
                     duree: duree,
-                    intensite: intensite
+                    intensite: intensite,
+                    commentaire: commentaire
                 });
             });
 
