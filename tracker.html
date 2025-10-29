@@ -663,21 +663,15 @@
                         <option value="Autre">Autre</option>
                     </select>
                 </div>
-                <div class="row">
-                    <div class="field">
-                        <label>Combien de temps a duré la séance ? (minutes)</label>
-                        <input type="number" class="dureeSport" min="0" placeholder="0">
+                <div class="field">
+                    <label>Quelle était l'intensité de la séance ?</label>
+                    <div class="slider-labels">
+                        <span class="left">Très facile</span>
+                        <span class="right">Très intense</span>
                     </div>
-                    <div class="field">
-                        <label>Quelle était l'intensité de la séance ?</label>
-                        <div class="slider-labels">
-                            <span class="left">Très facile</span>
-                            <span class="right">Très intense</span>
-                        </div>
-                        <input type="range" class="intensite" min="0" max="10" value="5">
-                        <div class="slider-value"><span class="intensiteValue">5</span>/10</div>
-                        <div class="slider-hint intensiteHint">Modéré</div>
-                    </div>
+                    <input type="range" class="intensite" min="0" max="10" value="5">
+                    <div class="slider-value"><span class="intensiteValue">5</span>/10</div>
+                    <div class="slider-hint intensiteHint">Modéré</div>
                 </div>
                 <div class="field">
                     <label>Commentaires sur cette séance</label>
@@ -733,13 +727,11 @@
             const seances = [];
             sportEntries.forEach((entry, index) => {
                 const type = entry.querySelector('.typeSport').value;
-                const duree = parseInt(entry.querySelector('.dureeSport').value) || 0;
                 const intensite = parseInt(entry.querySelector('.intensite').value);
                 const commentaire = entry.querySelector('.commentaireSport').value || '';
                 seances.push({
                     numero: index + 1,
                     type: type,
-                    duree: duree,
                     intensite: intensite,
                     commentaire: commentaire
                 });
