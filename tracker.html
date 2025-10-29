@@ -370,48 +370,9 @@
             <div class="section">
                 <div class="section-title">🏋️ Sport</div>
                 <div id="sportContainer">
-                    <div class="sport-entry">
-                        <div class="sport-entry-title">Séance #1</div>
-                        <div class="field">
-                            <label>Quel type de séance avez-vous fait ?</label>
-                            <select class="typeSport" required>
-                                <option value="">-- Sélectionner --</option>
-                                <option value="Entraînement">Entraînement</option>
-                                <option value="Match">Match</option>
-                                <option value="Repos">Repos</option>
-                                <option value="Récupération">Récupération</option>
-                                <option value="Musculation">Musculation</option>
-                                <option value="Ergomètre">Ergomètre</option>
-                                <option value="Bateau">Bateau</option>
-                                <option value="Course à pied">Course à pied</option>
-                                <option value="Natation">Natation</option>
-                                <option value="Vélo">Vélo</option>
-                                <option value="Autre">Autre</option>
-                            </select>
-                        </div>
-                        <div class="row">
-                            <div class="field">
-                                <label>Combien de temps a duré la séance ? (minutes)</label>
-                                <input type="number" class="dureeSport" min="0" placeholder="0">
-                            </div>
-                            <div class="field">
-                                <label>Quelle était l'intensité de la séance ?</label>
-                                <div class="slider-labels">
-                                    <span class="left">Très facile</span>
-                                    <span class="right">Très intense</span>
-                                </div>
-                                <input type="range" class="intensite" min="0" max="10" value="5">
-                                <div class="slider-value"><span class="intensiteValue">5</span>/10</div>
-                                <div class="slider-hint intensiteHint">Modéré</div>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Commentaires sur cette séance</label>
-                            <textarea class="commentaireSport" placeholder="Notes, sensations, observations sur cette séance..."></textarea>
-                        </div>
-                    </div>
+                    <!-- Les séances seront ajoutées ici dynamiquement -->
                 </div>
-                <button type="button" class="add-sport-btn" onclick="addSportEntry()">➕ Ajouter une autre séance</button>
+                <button type="button" class="add-sport-btn" onclick="addSportEntry()">➕ Ajouter une séance de sport</button>
                 
                 <div class="field" style="margin-top: 25px;">
                     <label>Comment avez-vous ressenti l'effort de votre dernière séance ?</label>
@@ -676,7 +637,7 @@
             }
         });
 
-        let sportCount = 1;
+        let sportCount = 0;
 
         function addSportEntry() {
             sportCount++;
@@ -787,9 +748,12 @@
             // Créer l'objet JSON structuré
             const jsonData = {
                 date: data.date,
-                sport: {
+                sport: seances.length > 0 ? {
                     seances: seances,
                     effortPercu: data.rpe
+                } : {
+                    statut: "Repos",
+                    effortPercu: 0
                 },
                 sommeil: {
                     sensationReveil: data.sensationReveil
