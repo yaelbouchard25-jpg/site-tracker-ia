@@ -373,17 +373,6 @@
                     <!-- Les séances seront ajoutées ici dynamiquement -->
                 </div>
                 <button type="button" class="add-sport-btn" onclick="addSportEntry()">➕ Ajouter une séance de sport</button>
-                
-                <div class="field" style="margin-top: 25px;">
-                    <label>Comment avez-vous ressenti l'effort de votre dernière séance ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Très facile</span>
-                        <span class="right">Extrêmement difficile</span>
-                    </div>
-                    <input type="range" id="rpe" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="rpeValue">13</span>/20</div>
-                    <div class="slider-hint" id="rpeHint">Modéré</div>
-                </div>
             </div>
 
             <!-- SOMMEIL -->
@@ -413,16 +402,6 @@
                     <input type="range" id="fatigue" min="6" max="20" value="13">
                     <div class="slider-value"><span id="fatigueValue">13</span>/20</div>
                     <div class="slider-hint" id="fatigueHint">Moyennement fatigué</div>
-                </div>
-                <div class="field">
-                    <label>Avez-vous des douleurs ou courbatures ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Aucune douleur</span>
-                        <span class="right">Très douloureuses</span>
-                    </div>
-                    <input type="range" id="douleurs" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="douleursValue">13</span>/20</div>
-                    <div class="slider-hint" id="douleursHint">Quelques courbatures</div>
                 </div>
             </div>
 
@@ -509,8 +488,16 @@
                     <textarea id="problemsBusiness" placeholder="Décrivez les problèmes ou difficultés rencontrés..."></textarea>
                 </div>
                 <div class="field">
-                    <label>Où as-tu perdu du temps aujourd'hui ?</label>
-                    <textarea id="tempsPerdu" placeholder="Sur quoi avez-vous perdu du temps ? (réseaux sociaux, réunions inutiles, procrastination...)"></textarea>
+                    <label>Quelle est la seule chose que j'aurais pu faire aujourd'hui qui si je l'avais fait je sois un champion et que tout le reste devienne facile ou inutile ?</label>
+                    <textarea id="actionChampion" placeholder="La tâche prioritaire qui aurait tout changé..."></textarea>
+                </div>
+                <div class="field">
+                    <label>Quelle est la chose qui t'a libéré le plus de dopamine aujourd'hui ?</label>
+                    <textarea id="dopamine" placeholder="L'activité ou le moment le plus gratifiant..."></textarea>
+                </div>
+                <div class="field">
+                    <label>Où as-tu perdu du temps aujourd'hui ? / Qu'est-ce qui a fait que tu n'as pas réussi ta todo aujourd'hui ?</label>
+                    <textarea id="tempsPerdu" placeholder="Sur quoi avez-vous perdu du temps ? (réseaux sociaux, réunions inutiles, procrastination...) Qu'est-ce qui t'a bloqué ?"></textarea>
                 </div>
             </div>
 
@@ -571,10 +558,8 @@
 
         const hints = {
             intensite: ['', '', '', '', '', '', 'Très facile', 'Très facile', 'Facile', 'Facile', 'Assez facile', 'Modéré', 'Assez modéré', 'Modéré', 'Difficile', 'Assez difficile', 'Difficile', 'Très difficile', 'Très difficile', 'Extrêmement difficile', 'Maximal'],
-            rpe: ['', '', '', '', '', '', 'Très facile', 'Très facile', 'Facile', 'Facile', 'Assez facile', 'Modéré', 'Assez modéré', 'Modéré', 'Difficile', 'Assez difficile', 'Difficile', 'Très difficile', 'Très difficile', 'Extrêmement difficile', 'Maximal'],
             sensationReveil: ['', '', '', '', '', '', 'Épuisé', 'Très fatigué', 'Fatigué', 'Assez fatigué', 'Un peu fatigué', 'Moyen', 'Assez bien', 'Correct', 'Bien', 'Assez bien', 'Très bien', 'En forme', 'En pleine forme', 'Excellent', 'Parfait'],
             fatigue: ['', '', '', '', '', '', 'Pas fatigué', 'Très frais', 'Frais', 'Assez frais', 'Peu fatigué', 'Un peu fatigué', 'Moyennement fatigué', 'Fatigué', 'Bien fatigué', 'Assez épuisé', 'Très fatigué', 'Épuisé', 'Très épuisé', 'Extrêmement épuisé', 'Complètement épuisé'],
-            douleurs: ['', '', '', '', '', '', 'Aucune', 'Aucune', 'Très légères', 'Légères', 'Assez légères', 'Quelques courbatures', 'Courbatures', 'Courbatures modérées', 'Douloureuses', 'Assez douloureuses', 'Bien douloureuses', 'Très douloureuses', 'Extrêmement douloureuses', 'Presque insupportables', 'Insupportables'],
             stress: ['', '', '', '', '', '', 'Aucun stress', 'Très détendu', 'Détendu', 'Assez détendu', 'Un peu détendu', 'Neutre', 'Léger stress', 'Stress modéré', 'Un peu stressé', 'Stressé', 'Bien stressé', 'Très stressé', 'Fortement stressé', 'Énormément stressé', 'Extrêmement stressé'],
             clarteMentale: ['', '', '', '', '', '', 'Esprit brouillé', 'Très confus', 'Confusion', 'Peu clair', 'Assez confus', 'Un peu confus', 'Clarté moyenne', 'Assez clair', 'Clair', 'Bien clair', 'Très clair', 'Esprit vif', 'Très vif', 'Esprit affûté', 'Esprit cristallin'],
             energiePhysique: ['', '', '', '', '', '', 'Aucune énergie', 'Très faible', 'Faible', 'Assez faible', 'Peu d\'énergie', 'Un peu d\'énergie', 'Énergie moyenne', 'Correct', 'Assez bon', 'Bonne énergie', 'Très bonne énergie', 'Plein d\'énergie', 'Beaucoup d\'énergie', 'Débordant', 'Maximum d\'énergie'],
@@ -592,17 +577,11 @@
             }
         }
 
-        document.getElementById('rpe').addEventListener('input', function() {
-            updateSlider('rpe', this.value);
-        });
         document.getElementById('sensationReveil').addEventListener('input', function() {
             updateSlider('sensationReveil', this.value);
         });
         document.getElementById('fatigue').addEventListener('input', function() {
             updateSlider('fatigue', this.value);
-        });
-        document.getElementById('douleurs').addEventListener('input', function() {
-            updateSlider('douleurs', this.value);
         });
         document.getElementById('stress').addEventListener('input', function() {
             updateSlider('stress', this.value);
@@ -705,7 +684,6 @@
                 date: document.getElementById('date').value,
                 sensationReveil: parseInt(document.getElementById('sensationReveil').value),
                 fatigue: parseInt(document.getElementById('fatigue').value),
-                douleurs: parseInt(document.getElementById('douleurs').value),
                 stress: parseInt(document.getElementById('stress').value),
                 clarteMentale: parseInt(document.getElementById('clarteMentale').value),
                 energiePhysique: parseInt(document.getElementById('energiePhysique').value),
@@ -714,8 +692,9 @@
                 motivationAviron: parseInt(document.getElementById('motivationAviron').value),
                 motivationBusiness: parseInt(document.getElementById('motivationBusiness').value),
                 qualiteInteractions: parseInt(document.getElementById('qualiteInteractions').value),
-                rpe: parseInt(document.getElementById('rpe').value),
                 problemsBusiness: document.getElementById('problemsBusiness').value,
+                actionChampion: document.getElementById('actionChampion').value,
+                dopamine: document.getElementById('dopamine').value,
                 tempsPerdu: document.getElementById('tempsPerdu').value,
                 repasDejeuner: document.getElementById('repasDejeuner').value,
                 repasSoir: document.getElementById('repasSoir').value,
@@ -742,18 +721,15 @@
             const jsonData = {
                 date: data.date,
                 sport: seances.length > 0 ? {
-                    seances: seances,
-                    effortPercu: data.rpe
+                    seances: seances
                 } : {
-                    statut: "Repos",
-                    effortPercu: 0
+                    statut: "Repos"
                 },
                 sommeil: {
                     sensationReveil: data.sensationReveil
                 },
                 etatPhysique: {
-                    fatigue: data.fatigue,
-                    douleurs: data.douleurs
+                    fatigue: data.fatigue
                 },
                 etatMental: {
                     stress: data.stress,
@@ -766,6 +742,8 @@
                 },
                 business: {
                     problemesRencontres: data.problemsBusiness || '',
+                    actionChampion: data.actionChampion || '',
+                    dopamine: data.dopamine || '',
                     tempsPerdu: data.tempsPerdu || ''
                 },
                 relations: {
