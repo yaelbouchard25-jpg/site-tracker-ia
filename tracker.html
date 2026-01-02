@@ -349,6 +349,46 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #764ba2;
         }
+
+        .habit-toggle {
+            padding: 15px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: #dc3545;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 1em;
+        }
+
+        .habit-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+        }
+
+        .habit-toggle.active {
+            background: #28a745;
+            border-color: #28a745;
+        }
+
+        .habit-toggle.active:hover {
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .habit-name {
+            font-size: 0.95em;
+        }
+
+        .habit-status {
+            font-size: 0.8em;
+            opacity: 0.9;
+            font-weight: normal;
+        }
     </style>
 </head>
 <body>
@@ -363,6 +403,89 @@
                 <div class="field">
                     <label>Quelle est la date d'aujourd'hui ?</label>
                     <input type="date" id="date" required>
+                </div>
+            </div>
+
+            <!-- HABITUDES -->
+            <div class="section">
+                <div class="section-title">✅ Habitudes quotidiennes</div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                    <button type="button" class="habit-toggle" data-habit="noShort" onclick="toggleHabit(this)">
+                        <span class="habit-name">No short</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="mobiliter" onclick="toggleHabit(this)">
+                        <span class="habit-name">Mobiliter</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="noPorn" onclick="toggleHabit(this)">
+                        <span class="habit-name">No Porn</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="healthyFood" onclick="toggleHabit(this)">
+                        <span class="habit-name">Healthy Food</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="wakeUp6h" onclick="toggleHabit(this)">
+                        <span class="habit-name">Wake up 6h</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="sleep21h" onclick="toggleHabit(this)">
+                        <span class="habit-name">Sleep 21h</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="tracker" onclick="toggleHabit(this)">
+                        <span class="habit-name">Tracker</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="yt" onclick="toggleHabit(this)">
+                        <span class="habit-name">YT</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="noSMTil1930" onclick="toggleHabit(this)">
+                        <span class="habit-name">No SM til 19:30</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="ecrireObjectif" onclick="toggleHabit(this)">
+                        <span class="habit-name">Ecrire objectif</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="todoPreLeadSac" onclick="toggleHabit(this)">
+                        <span class="habit-name">Todo/pre lead/sac</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="dw1" onclick="toggleHabit(this)">
+                        <span class="habit-name">DW 1</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="dw2" onclick="toggleHabit(this)">
+                        <span class="habit-name">DW 2</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="dw3" onclick="toggleHabit(this)">
+                        <span class="habit-name">DW 3</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="dw4" onclick="toggleHabit(this)">
+                        <span class="habit-name">DW 4</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="handCopy30m" onclick="toggleHabit(this)">
+                        <span class="habit-name">Hand copy 30m</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="sport" onclick="toggleHabit(this)">
+                        <span class="habit-name">Sport</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="anAnki" onclick="toggleHabit(this)">
+                        <span class="habit-name">An anki</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
+                    <button type="button" class="habit-toggle" data-habit="lecture" onclick="toggleHabit(this)">
+                        <span class="habit-name">Lecture</span>
+                        <span class="habit-status">OFF</span>
+                    </button>
                 </div>
             </div>
 
@@ -543,14 +666,10 @@
                 </div>
             </div>
 
-            <button type="submit" class="generate-btn">✨ Générer le rapport ASRM</button>
+            <button type="submit" class="generate-btn">📤 Envoyer le rapport ASRM</button>
         </form>
 
-        <div id="outputContainer" class="output-container">
-            <div class="output-title">📋 Rapport ASRM généré (Format JSON)</div>
-            <div id="outputText" class="output-text"></div>
-            <button id="copyBtn" class="copy-btn">📋 Copier JSON</button>
-        </div>
+        <div id="statusMessage" style="display: none; margin-top: 20px; padding: 20px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold;"></div>
     </div>
 
     <script>
@@ -662,24 +781,23 @@
             container.appendChild(newEntry);
         }
 
+        // Fonction pour toggle les habitudes
+        function toggleHabit(button) {
+            button.classList.toggle('active');
+            const statusSpan = button.querySelector('.habit-status');
+            if (button.classList.contains('active')) {
+                statusSpan.textContent = 'ON';
+            } else {
+                statusSpan.textContent = 'OFF';
+            }
+        }
+
         document.getElementById('trackerForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            generateText();
+            sendToWebhook();
         });
 
-        document.getElementById('copyBtn').addEventListener('click', function() {
-            const text = document.getElementById('outputText').textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                this.textContent = '✅ JSON Copié !';
-                this.classList.add('copied');
-                setTimeout(() => {
-                    this.textContent = '📋 Copier JSON';
-                    this.classList.remove('copied');
-                }, 2000);
-            });
-        });
-
-        function generateText() {
+        async function sendToWebhook() {
             const data = {
                 date: document.getElementById('date').value,
                 sensationReveil: parseInt(document.getElementById('sensationReveil').value),
@@ -702,6 +820,15 @@
                 commentaires: document.getElementById('commentaires').value
             };
 
+            // Collecter les habitudes
+            const habitButtons = document.querySelectorAll('.habit-toggle');
+            const habitudes = {};
+            habitButtons.forEach(button => {
+                const habitName = button.dataset.habit;
+                const isActive = button.classList.contains('active');
+                habitudes[habitName] = isActive ? 1 : 0;
+            });
+
             // Collecter les séances de sport
             const sportEntries = document.querySelectorAll('.sport-entry');
             const seances = [];
@@ -720,6 +847,7 @@
             // Créer l'objet JSON structuré
             const jsonData = {
                 date: data.date,
+                habitudes: habitudes,
                 sport: seances.length > 0 ? {
                     seances: seances
                 } : {
@@ -757,12 +885,46 @@
                 commentaires: data.commentaires || ''
             };
 
-            // Convertir en JSON formaté
-            const formattedJSON = JSON.stringify(jsonData, null, 2);
+            // Afficher un message de chargement
+            const statusMsg = document.getElementById('statusMessage');
+            statusMsg.style.display = 'block';
+            statusMsg.style.background = '#667eea';
+            statusMsg.style.color = 'white';
+            statusMsg.textContent = '📤 Envoi en cours...';
+            statusMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-            document.getElementById('outputText').textContent = formattedJSON;
-            document.getElementById('outputContainer').classList.add('show');
-            document.getElementById('outputContainer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // Envoyer au webhook n8n
+            try {
+                const response = await fetch('https://n8n.scaling-acquisition.fr/webhook/c7e25f65-323a-4538-a639-1c01de5865fb', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(jsonData)
+                });
+
+                if (response.ok) {
+                    statusMsg.style.background = '#28a745';
+                    statusMsg.textContent = '✅ Rapport envoyé avec succès !';
+                    // Réinitialiser le formulaire après 2 secondes
+                    setTimeout(() => {
+                        document.getElementById('trackerForm').reset();
+                        document.getElementById('date').valueAsDate = new Date();
+                        // Réinitialiser les habitudes
+                        habitButtons.forEach(btn => {
+                            btn.classList.remove('active');
+                            btn.querySelector('.habit-status').textContent = 'OFF';
+                        });
+                        statusMsg.style.display = 'none';
+                    }, 2000);
+                } else {
+                    throw new Error('Erreur serveur');
+                }
+            } catch (error) {
+                statusMsg.style.background = '#dc3545';
+                statusMsg.textContent = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
+                console.error('Erreur:', error);
+            }
         }
     </script>
 </body>
