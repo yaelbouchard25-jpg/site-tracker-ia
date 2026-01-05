@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASRM - Tracker Athlète</title>
+    <title>WAR Tracker</title>
     <style>
         * {
             margin: 0;
@@ -13,51 +13,70 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #0a0a0a;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 100%);
             min-height: 100vh;
             padding: 20px;
             color: #e0e0e0;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: #1a1a1a;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            padding: 40px;
-            border: 1px solid #2a2a2a;
+            background: linear-gradient(145deg, #1a1a1a 0%, #222 100%);
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+            padding: 50px;
+            border: 2px solid #333;
         }
 
         h1 {
             text-align: center;
-            color: #667eea;
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 10px;
-            font-size: 2.5em;
+            font-size: 3.5em;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .subtitle {
             text-align: center;
-            color: #999;
-            margin-bottom: 40px;
-            font-size: 1.1em;
+            color: #ff416c;
+            margin-bottom: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            letter-spacing: 2px;
         }
 
         .section {
-            margin-bottom: 35px;
-            padding: 25px;
-            background: #222;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(145deg, #222 0%, #2a2a2a 100%);
+            border-radius: 20px;
+            border-left: 6px solid #ff416c;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(255, 65, 108, 0.2);
         }
 
         .section-title {
-            font-size: 1.5em;
-            color: #667eea;
-            margin-bottom: 20px;
+            font-size: 1.8em;
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-weight: 700;
         }
 
         .field {
@@ -202,19 +221,20 @@
 
         .add-sport-btn {
             padding: 12px 25px;
-            background: #667eea;
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
             font-size: 1em;
+            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.3);
         }
 
         .add-sport-btn:hover {
-            background: #764ba2;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 65, 108, 0.5);
         }
 
         .remove-sport-btn {
@@ -222,7 +242,7 @@
             background: #dc3545;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 0.9em;
             margin-top: 10px;
@@ -231,26 +251,29 @@
 
         .remove-sport-btn:hover {
             background: #c82333;
+            transform: translateY(-1px);
         }
 
         .generate-btn {
             width: 100%;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
             color: white;
             border: none;
-            border-radius: 15px;
-            font-size: 1.4em;
-            font-weight: bold;
+            border-radius: 20px;
+            font-size: 1.6em;
+            font-weight: 900;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            margin-top: 40px;
+            box-shadow: 0 15px 40px rgba(255, 65, 108, 0.4);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .generate-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(255, 65, 108, 0.6);
         }
 
         .output-container {
@@ -393,8 +416,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>📊 ASRM - Tracker Athlète</h1>
-        <p class="subtitle">Athlete Self-Report Measure</p>
+        <h1>⚔️ WAR TRACKER</h1>
+        <p class="subtitle">WIN AT REVENUE</p>
 
         <form id="trackerForm">
             <!-- DATE -->
@@ -406,33 +429,26 @@
                 </div>
             </div>
 
-            <!-- SPORT -->
+            <!-- BUSINESS - PRIORITÉ #1 -->
             <div class="section">
-                <div class="section-title">🏋️ Sport</div>
-                <div id="sportContainer">
-                    <!-- Les séances seront ajoutées ici dynamiquement -->
-                </div>
-                <button type="button" class="add-sport-btn" onclick="addSportEntry()">➕ Ajouter une séance de sport</button>
-            </div>
-
-            <!-- ÉTAT PHYSIQUE -->
-            <div class="section">
-                <div class="section-title">💪 État physique</div>
+                <div class="section-title">💼 Business</div>
                 <div class="field">
-                    <label>À quel point vous sentez-vous fatigué ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Pas du tout fatigué</span>
-                        <span class="right">Complètement épuisé</span>
-                    </div>
-                    <input type="range" id="fatigue" min="0" max="10" value="5">
-                    <div class="slider-value"><span id="fatigueValue">5</span>/10</div>
-                    <div class="slider-hint" id="fatigueHint">Moyennement fatigué</div>
+                    <label>Quels ont été les problèmes rencontrés aujourd'hui ?</label>
+                    <textarea id="problemsBusiness" placeholder="Décrivez les problèmes ou difficultés rencontrés..."></textarea>
+                </div>
+                <div class="field">
+                    <label>Qu'est-ce que la VERSION DE MOI À 100K/MOIS aurait fait différemment aujourd'hui ?</label>
+                    <textarea id="actionChampion" placeholder="Les actions et décisions de ta version à 100K/mois..."></textarea>
+                </div>
+                <div class="field">
+                    <label>Quelles ont été tes voleurs de temps aujourd'hui ?</label>
+                    <textarea id="tempsPerdu" placeholder="Réseaux sociaux, distractions, procrastination..."></textarea>
                 </div>
             </div>
 
-            <!-- ÉTAT MENTAL & ÉNERGIE -->
+            <!-- MINDSET - PRIORITÉ #3 -->
             <div class="section">
-                <div class="section-title">🧠 État mental & Énergie</div>
+                <div class="section-title">🧠 Mindset</div>
                 <div class="field">
                     <label>À quel point vous sentez-vous stressé ?</label>
                     <div class="slider-labels">
@@ -452,16 +468,6 @@
                     <input type="range" id="clarteMentale" min="0" max="10" value="5">
                     <div class="slider-value"><span id="clarteMentaleValue">5</span>/10</div>
                     <div class="slider-hint" id="clarteMentaleHint">Clarté moyenne</div>
-                </div>
-                <div class="field">
-                    <label>Comment évaluez-vous votre énergie physique ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Aucune énergie</span>
-                        <span class="right">Débordant d'énergie</span>
-                    </div>
-                    <input type="range" id="energiePhysique" min="0" max="10" value="5">
-                    <div class="slider-value"><span id="energiePhysiqueValue">5</span>/10</div>
-                    <div class="slider-hint" id="energiePhysiqueHint">Énergie moyenne</div>
                 </div>
                 <div class="field">
                     <label>Comment décririez-vous votre humeur générale ?</label>
@@ -495,21 +501,23 @@
                 </div>
             </div>
 
-            <!-- BUSINESS -->
+            <!-- SPORT & ÉNERGIE - PRIORITÉ #2 -->
             <div class="section">
-                <div class="section-title">💼 Business</div>
+                <div class="section-title">🏋️ Sport & Énergie</div>
                 <div class="field">
-                    <label>Quels ont été les problèmes rencontrés aujourd'hui ?</label>
-                    <textarea id="problemsBusiness" placeholder="Décrivez les problèmes ou difficultés rencontrés..."></textarea>
+                    <label>Comment évaluez-vous votre énergie physique ?</label>
+                    <div class="slider-labels">
+                        <span class="left">Aucune énergie</span>
+                        <span class="right">Débordant d'énergie</span>
+                    </div>
+                    <input type="range" id="energiePhysique" min="0" max="10" value="5">
+                    <div class="slider-value"><span id="energiePhysiqueValue">5</span>/10</div>
+                    <div class="slider-hint" id="energiePhysiqueHint">Énergie moyenne</div>
                 </div>
-                <div class="field">
-                    <label>Quelle est la seule chose que j'aurais pu faire aujourd'hui qui si je l'avais fait je sois un champion et que tout le reste devienne facile ou inutile ?</label>
-                    <textarea id="actionChampion" placeholder="La tâche prioritaire qui aurait tout changé..."></textarea>
+                <div id="sportContainer">
+                    <!-- Les séances seront ajoutées ici dynamiquement -->
                 </div>
-                <div class="field">
-                    <label>Où as-tu perdu du temps aujourd'hui ? / Qu'est-ce qui a fait que tu n'as pas réussi ta todo aujourd'hui ?</label>
-                    <textarea id="tempsPerdu" placeholder="Sur quoi avez-vous perdu du temps ? (réseaux sociaux, réunions inutiles, procrastination...) Qu'est-ce qui t'a bloqué ?"></textarea>
-                </div>
+                <button type="button" class="add-sport-btn" onclick="addSportEntry()">➕ Ajouter une séance de sport</button>
             </div>
 
             <!-- RELATIONS -->
@@ -548,16 +556,7 @@
             <!-- HABITUDES QUOTIDIENNES -->
             <div class="section">
                 <div class="section-title">✅ Habitudes quotidiennes</div>
-
-                <div style="margin-bottom: 25px;">
-                    <iframe src="https://docs.google.com/spreadsheets/d/1aAItVvRQ8DDg28cdD6ItwhK6aknBKSy4KHuvtQ6004I/preview"
-                            width="100%"
-                            height="600"
-                            style="border: 2px solid #333; border-radius: 10px;">
-                    </iframe>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
                     <button type="button" class="habit-toggle" data-habit="noShort" onclick="toggleHabit(this)">
                         <span class="habit-name">No short</span>
                         <span class="habit-status">OFF</span>
@@ -657,7 +656,6 @@
 
         const hints = {
             intensite: ['Très facile', 'Très facile', 'Facile', 'Facile', 'Modéré', 'Modéré', 'Difficile', 'Difficile', 'Très difficile', 'Très difficile', 'Maximal'],
-            fatigue: ['Pas fatigué', 'Très frais', 'Frais', 'Peu fatigué', 'Moyennement fatigué', 'Fatigué', 'Bien fatigué', 'Très fatigué', 'Épuisé', 'Épuisé', 'Complètement épuisé'],
             stress: ['Aucun stress', 'Très détendu', 'Détendu', 'Un peu détendu', 'Stress modéré', 'Un peu stressé', 'Stressé', 'Bien stressé', 'Très stressé', 'Très stressé', 'Extrêmement stressé'],
             clarteMentale: ['Esprit brouillé', 'Confusion', 'Peu clair', 'Assez confus', 'Clarté moyenne', 'Assez clair', 'Clair', 'Très clair', 'Esprit vif', 'Esprit vif', 'Esprit cristallin'],
             energiePhysique: ['Aucune énergie', 'Très faible', 'Faible', 'Peu d\'énergie', 'Énergie moyenne', 'Correct', 'Bonne énergie', 'Très bonne énergie', 'Plein d\'énergie', 'Débordant', 'Maximum d\'énergie'],
@@ -674,9 +672,6 @@
             }
         }
 
-        document.getElementById('fatigue').addEventListener('input', function() {
-            updateSlider('fatigue', this.value);
-        });
         document.getElementById('stress').addEventListener('input', function() {
             updateSlider('stress', this.value);
         });
@@ -766,7 +761,6 @@
         async function sendToWebhook() {
             const data = {
                 date: document.getElementById('date').value,
-                fatigue: parseInt(document.getElementById('fatigue').value),
                 stress: parseInt(document.getElementById('stress').value),
                 clarteMentale: parseInt(document.getElementById('clarteMentale').value),
                 energiePhysique: parseInt(document.getElementById('energiePhysique').value),
@@ -812,17 +806,15 @@
                 date: data.date,
                 habitudes: habitudes,
                 sport: seances.length > 0 ? {
-                    seances: seances
+                    seances: seances,
+                    energiePhysique: data.energiePhysique
                 } : {
-                    statut: "Repos"
+                    statut: "Repos",
+                    energiePhysique: data.energiePhysique
                 },
-                etatPhysique: {
-                    fatigue: data.fatigue
-                },
-                etatMental: {
+                mindset: {
                     stress: data.stress,
                     clarteMentale: data.clarteMentale,
-                    energiePhysique: data.energiePhysique,
                     humeur: data.humeur,
                     motivationAviron: data.motivationAviron,
                     motivationBusiness: data.motivationBusiness
@@ -846,9 +838,9 @@
             // Afficher un message de chargement
             const statusMsg = document.getElementById('statusMessage');
             statusMsg.style.display = 'block';
-            statusMsg.style.background = '#667eea';
+            statusMsg.style.background = 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)';
             statusMsg.style.color = 'white';
-            statusMsg.textContent = '📤 Envoi en cours...';
+            statusMsg.textContent = '⚔️ ENVOI EN COURS...';
             statusMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
             // Envoyer au webhook n8n
@@ -862,8 +854,8 @@
                 });
 
                 if (response.ok) {
-                    statusMsg.style.background = '#28a745';
-                    statusMsg.textContent = '✅ Rapport envoyé avec succès !';
+                    statusMsg.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+                    statusMsg.textContent = '⚔️ VICTOIRE ! DONNÉES ENVOYÉES';
                     // Réinitialiser le formulaire après 2 secondes
                     setTimeout(() => {
                         document.getElementById('trackerForm').reset();
@@ -879,8 +871,8 @@
                     throw new Error('Erreur serveur');
                 }
             } catch (error) {
-                statusMsg.style.background = '#dc3545';
-                statusMsg.textContent = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
+                statusMsg.style.background = 'linear-gradient(135deg, #dc3545 0%, #c82333 100%)';
+                statusMsg.textContent = '❌ ÉCHEC DE L\'ENVOI - RÉESSAYER';
                 console.error('Erreur:', error);
             }
         }
