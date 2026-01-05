@@ -406,9 +406,157 @@
                 </div>
             </div>
 
-            <!-- HABITUDES -->
+            <!-- SPORT -->
+            <div class="section">
+                <div class="section-title">🏋️ Sport</div>
+                <div id="sportContainer">
+                    <!-- Les séances seront ajoutées ici dynamiquement -->
+                </div>
+                <button type="button" class="add-sport-btn" onclick="addSportEntry()">➕ Ajouter une séance de sport</button>
+            </div>
+
+            <!-- ÉTAT PHYSIQUE -->
+            <div class="section">
+                <div class="section-title">💪 État physique</div>
+                <div class="field">
+                    <label>À quel point vous sentez-vous fatigué ?</label>
+                    <div class="slider-labels">
+                        <span class="left">Pas du tout fatigué</span>
+                        <span class="right">Complètement épuisé</span>
+                    </div>
+                    <input type="range" id="fatigue" min="0" max="10" value="5">
+                    <div class="slider-value"><span id="fatigueValue">5</span>/10</div>
+                    <div class="slider-hint" id="fatigueHint">Moyennement fatigué</div>
+                </div>
+            </div>
+
+            <!-- ÉTAT MENTAL & ÉNERGIE -->
+            <div class="section">
+                <div class="section-title">🧠 État mental & Énergie</div>
+                <div class="field">
+                    <label>À quel point vous sentez-vous stressé ?</label>
+                    <div class="slider-labels">
+                        <span class="left">Pas du tout stressé</span>
+                        <span class="right">Extrêmement stressé</span>
+                    </div>
+                    <input type="range" id="stress" min="0" max="10" value="5">
+                    <div class="slider-value"><span id="stressValue">5</span>/10</div>
+                    <div class="slider-hint" id="stressHint">Stress modéré</div>
+                </div>
+                <div class="field">
+                    <label>Comment évaluez-vous votre clarté mentale ?</label>
+                    <div class="slider-labels">
+                        <span class="left">Esprit brouillé</span>
+                        <span class="right">Esprit clair</span>
+                    </div>
+                    <input type="range" id="clarteMentale" min="0" max="10" value="5">
+                    <div class="slider-value"><span id="clarteMentaleValue">5</span>/10</div>
+                    <div class="slider-hint" id="clarteMentaleHint">Clarté moyenne</div>
+                </div>
+                <div class="field">
+                    <label>Comment évaluez-vous votre énergie physique ?</label>
+                    <div class="slider-labels">
+                        <span class="left">Aucune énergie</span>
+                        <span class="right">Débordant d'énergie</span>
+                    </div>
+                    <input type="range" id="energiePhysique" min="0" max="10" value="5">
+                    <div class="slider-value"><span id="energiePhysiqueValue">5</span>/10</div>
+                    <div class="slider-hint" id="energiePhysiqueHint">Énergie moyenne</div>
+                </div>
+                <div class="field">
+                    <label>Comment décririez-vous votre humeur générale ?</label>
+                    <div class="slider-labels">
+                        <span class="left">Très mauvaise</span>
+                        <span class="right">Excellente</span>
+                    </div>
+                    <input type="range" id="humeur" min="0" max="10" value="5">
+                    <div class="slider-value"><span id="humeurValue">5</span>/10</div>
+                    <div class="slider-hint" id="humeurHint">Humeur moyenne</div>
+                </div>
+                <div class="field">
+                    <label>Quel est votre niveau de motivation pour l'aviron ?</label>
+                    <div class="slider-labels">
+                        <span class="left">Aucune motivation</span>
+                        <span class="right">Très motivé</span>
+                    </div>
+                    <input type="range" id="motivationAviron" min="0" max="10" value="5">
+                    <div class="slider-value"><span id="motivationAvironValue">5</span>/10</div>
+                    <div class="slider-hint" id="motivationAvironHint">Motivation moyenne</div>
+                </div>
+                <div class="field">
+                    <label>Quel est votre niveau de motivation pour le business ?</label>
+                    <div class="slider-labels">
+                        <span class="left">Aucune motivation</span>
+                        <span class="right">Très motivé</span>
+                    </div>
+                    <input type="range" id="motivationBusiness" min="0" max="10" value="5">
+                    <div class="slider-value"><span id="motivationBusinessValue">5</span>/10</div>
+                    <div class="slider-hint" id="motivationBusinessHint">Motivation moyenne</div>
+                </div>
+            </div>
+
+            <!-- BUSINESS -->
+            <div class="section">
+                <div class="section-title">💼 Business</div>
+                <div class="field">
+                    <label>Quels ont été les problèmes rencontrés aujourd'hui ?</label>
+                    <textarea id="problemsBusiness" placeholder="Décrivez les problèmes ou difficultés rencontrés..."></textarea>
+                </div>
+                <div class="field">
+                    <label>Quelle est la seule chose que j'aurais pu faire aujourd'hui qui si je l'avais fait je sois un champion et que tout le reste devienne facile ou inutile ?</label>
+                    <textarea id="actionChampion" placeholder="La tâche prioritaire qui aurait tout changé..."></textarea>
+                </div>
+                <div class="field">
+                    <label>Où as-tu perdu du temps aujourd'hui ? / Qu'est-ce qui a fait que tu n'as pas réussi ta todo aujourd'hui ?</label>
+                    <textarea id="tempsPerdu" placeholder="Sur quoi avez-vous perdu du temps ? (réseaux sociaux, réunions inutiles, procrastination...) Qu'est-ce qui t'a bloqué ?"></textarea>
+                </div>
+            </div>
+
+            <!-- RELATIONS -->
+            <div class="section">
+                <div class="section-title">👥 Relations</div>
+                <div class="field">
+                    <label>Comment évaluez-vous la qualité de vos interactions aujourd'hui ?</label>
+                    <div class="slider-labels">
+                        <span class="left">Très mauvaises</span>
+                        <span class="right">Excellentes</span>
+                    </div>
+                    <input type="range" id="qualiteInteractions" min="0" max="10" value="5">
+                    <div class="slider-value"><span id="qualiteInteractionsValue">5</span>/10</div>
+                    <div class="slider-hint" id="qualiteInteractionsHint">Interactions moyennes</div>
+                </div>
+            </div>
+
+            <!-- NUTRITION -->
+            <div class="section">
+                <div class="section-title">🍽️ Nutrition</div>
+                <div class="field">
+                    <label>Qu'avez-vous mangé au déjeuner (12h00) ?</label>
+                    <textarea id="repasDejeuner" placeholder="Décrivez votre repas du midi..."></textarea>
+                </div>
+                <div class="field">
+                    <label>Qu'avez-vous mangé au repas du soir ?</label>
+                    <textarea id="repasSoir" placeholder="Décrivez votre repas du soir..."></textarea>
+                </div>
+                <div class="field">
+                    <label>À quelle heure avez-vous terminé votre repas du soir ?</label>
+                    <input type="text" id="heureRepasSoir" placeholder="Ex: 19h30 ou 22h10 ou 9h2" pattern="[0-9]{1,2}[ ]?[hH][ ]?[0-9]{1,2}">
+                    <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Format: 19h30 ou 22h10 ou 9 h 2</div>
+                </div>
+            </div>
+
+            <!-- HABITUDES QUOTIDIENNES -->
             <div class="section">
                 <div class="section-title">✅ Habitudes quotidiennes</div>
+
+                <div style="margin-bottom: 25px;">
+                    <iframe src="https://docs.google.com/spreadsheets/d/1aAItVvRQ8DDg28cdD6ItwhK6aknBKSy4KHuvtQ6004I/preview"
+                            width="100%"
+                            height="600"
+                            style="border: 2px solid #333; border-radius: 10px;">
+                    </iframe>
+                </div>
+
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
                     <button type="button" class="habit-toggle" data-habit="noShort" onclick="toggleHabit(this)">
                         <span class="habit-name">No short</span>
@@ -489,145 +637,6 @@
                 </div>
             </div>
 
-            <!-- SPORT -->
-            <div class="section">
-                <div class="section-title">🏋️ Sport</div>
-                <div id="sportContainer">
-                    <!-- Les séances seront ajoutées ici dynamiquement -->
-                </div>
-                <button type="button" class="add-sport-btn" onclick="addSportEntry()">➕ Ajouter une séance de sport</button>
-            </div>
-
-            <!-- ÉTAT PHYSIQUE -->
-            <div class="section">
-                <div class="section-title">💪 État physique</div>
-                <div class="field">
-                    <label>À quel point vous sentez-vous fatigué ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Pas du tout fatigué</span>
-                        <span class="right">Complètement épuisé</span>
-                    </div>
-                    <input type="range" id="fatigue" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="fatigueValue">13</span>/20</div>
-                    <div class="slider-hint" id="fatigueHint">Moyennement fatigué</div>
-                </div>
-            </div>
-
-            <!-- ÉTAT MENTAL & ÉNERGIE -->
-            <div class="section">
-                <div class="section-title">🧠 État mental & Énergie</div>
-                <div class="field">
-                    <label>À quel point vous sentez-vous stressé ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Pas du tout stressé</span>
-                        <span class="right">Extrêmement stressé</span>
-                    </div>
-                    <input type="range" id="stress" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="stressValue">13</span>/20</div>
-                    <div class="slider-hint" id="stressHint">Stress modéré</div>
-                </div>
-                <div class="field">
-                    <label>Comment évaluez-vous votre clarté mentale ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Esprit brouillé</span>
-                        <span class="right">Esprit clair</span>
-                    </div>
-                    <input type="range" id="clarteMentale" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="clarteMentaleValue">13</span>/20</div>
-                    <div class="slider-hint" id="clarteMentaleHint">Clarté moyenne</div>
-                </div>
-                <div class="field">
-                    <label>Comment évaluez-vous votre énergie physique ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Aucune énergie</span>
-                        <span class="right">Débordant d'énergie</span>
-                    </div>
-                    <input type="range" id="energiePhysique" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="energiePhysiqueValue">13</span>/20</div>
-                    <div class="slider-hint" id="energiePhysiqueHint">Énergie moyenne</div>
-                </div>
-                <div class="field">
-                    <label>Comment décririez-vous votre humeur générale ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Très mauvaise</span>
-                        <span class="right">Excellente</span>
-                    </div>
-                    <input type="range" id="humeur" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="humeurValue">13</span>/20</div>
-                    <div class="slider-hint" id="humeurHint">Humeur moyenne</div>
-                </div>
-                <div class="field">
-                    <label>Quel est votre niveau de motivation pour l'aviron ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Aucune motivation</span>
-                        <span class="right">Très motivé</span>
-                    </div>
-                    <input type="range" id="motivationAviron" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="motivationAvironValue">13</span>/20</div>
-                    <div class="slider-hint" id="motivationAvironHint">Motivation moyenne</div>
-                </div>
-                <div class="field">
-                    <label>Quel est votre niveau de motivation pour le business ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Aucune motivation</span>
-                        <span class="right">Très motivé</span>
-                    </div>
-                    <input type="range" id="motivationBusiness" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="motivationBusinessValue">13</span>/20</div>
-                    <div class="slider-hint" id="motivationBusinessHint">Motivation moyenne</div>
-                </div>
-            </div>
-
-            <!-- BUSINESS -->
-            <div class="section">
-                <div class="section-title">💼 Business</div>
-                <div class="field">
-                    <label>Quels ont été les problèmes rencontrés aujourd'hui ?</label>
-                    <textarea id="problemsBusiness" placeholder="Décrivez les problèmes ou difficultés rencontrés..."></textarea>
-                </div>
-                <div class="field">
-                    <label>Quelle est la seule chose que j'aurais pu faire aujourd'hui qui si je l'avais fait je sois un champion et que tout le reste devienne facile ou inutile ?</label>
-                    <textarea id="actionChampion" placeholder="La tâche prioritaire qui aurait tout changé..."></textarea>
-                </div>
-                <div class="field">
-                    <label>Où as-tu perdu du temps aujourd'hui ? / Qu'est-ce qui a fait que tu n'as pas réussi ta todo aujourd'hui ?</label>
-                    <textarea id="tempsPerdu" placeholder="Sur quoi avez-vous perdu du temps ? (réseaux sociaux, réunions inutiles, procrastination...) Qu'est-ce qui t'a bloqué ?"></textarea>
-                </div>
-            </div>
-
-            <!-- RELATIONS -->
-            <div class="section">
-                <div class="section-title">👥 Relations</div>
-                <div class="field">
-                    <label>Comment évaluez-vous la qualité de vos interactions aujourd'hui ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Très mauvaises</span>
-                        <span class="right">Excellentes</span>
-                    </div>
-                    <input type="range" id="qualiteInteractions" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="qualiteInteractionsValue">13</span>/20</div>
-                    <div class="slider-hint" id="qualiteInteractionsHint">Interactions moyennes</div>
-                </div>
-            </div>
-
-            <!-- NUTRITION -->
-            <div class="section">
-                <div class="section-title">🍽️ Nutrition</div>
-                <div class="field">
-                    <label>Qu'avez-vous mangé au déjeuner (12h00) ?</label>
-                    <textarea id="repasDejeuner" placeholder="Décrivez votre repas du midi..."></textarea>
-                </div>
-                <div class="field">
-                    <label>Qu'avez-vous mangé au repas du soir ?</label>
-                    <textarea id="repasSoir" placeholder="Décrivez votre repas du soir..."></textarea>
-                </div>
-                <div class="field">
-                    <label>À quelle heure avez-vous terminé votre repas du soir ?</label>
-                    <input type="text" id="heureRepasSoir" placeholder="Ex: 19h30 ou 22h10 ou 9h2" pattern="[0-9]{1,2}[ ]?[hH][ ]?[0-9]{1,2}">
-                    <div style="font-size: 0.9em; color: #999; margin-top: 8px;">Format: 19h30 ou 22h10 ou 9 h 2</div>
-                </div>
-            </div>
-
             <!-- COMMENTAIRES -->
             <div class="section">
                 <div class="section-title">📝 Commentaires</div>
@@ -647,15 +656,15 @@
         document.getElementById('date').valueAsDate = new Date();
 
         const hints = {
-            intensite: ['', '', '', '', '', '', 'Très facile', 'Très facile', 'Facile', 'Facile', 'Assez facile', 'Modéré', 'Assez modéré', 'Modéré', 'Difficile', 'Assez difficile', 'Difficile', 'Très difficile', 'Très difficile', 'Extrêmement difficile', 'Maximal'],
-            fatigue: ['', '', '', '', '', '', 'Pas fatigué', 'Très frais', 'Frais', 'Assez frais', 'Peu fatigué', 'Un peu fatigué', 'Moyennement fatigué', 'Fatigué', 'Bien fatigué', 'Assez épuisé', 'Très fatigué', 'Épuisé', 'Très épuisé', 'Extrêmement épuisé', 'Complètement épuisé'],
-            stress: ['', '', '', '', '', '', 'Aucun stress', 'Très détendu', 'Détendu', 'Assez détendu', 'Un peu détendu', 'Neutre', 'Léger stress', 'Stress modéré', 'Un peu stressé', 'Stressé', 'Bien stressé', 'Très stressé', 'Fortement stressé', 'Énormément stressé', 'Extrêmement stressé'],
-            clarteMentale: ['', '', '', '', '', '', 'Esprit brouillé', 'Très confus', 'Confusion', 'Peu clair', 'Assez confus', 'Un peu confus', 'Clarté moyenne', 'Assez clair', 'Clair', 'Bien clair', 'Très clair', 'Esprit vif', 'Très vif', 'Esprit affûté', 'Esprit cristallin'],
-            energiePhysique: ['', '', '', '', '', '', 'Aucune énergie', 'Très faible', 'Faible', 'Assez faible', 'Peu d\'énergie', 'Un peu d\'énergie', 'Énergie moyenne', 'Correct', 'Assez bon', 'Bonne énergie', 'Très bonne énergie', 'Plein d\'énergie', 'Beaucoup d\'énergie', 'Débordant', 'Maximum d\'énergie'],
-            humeur: ['', '', '', '', '', '', 'Très mauvaise', 'Très mauvaise', 'Mauvaise', 'Pas top', 'Assez mauvaise', 'Moyen', 'Humeur moyenne', 'Correcte', 'Assez bonne', 'Bonne', 'Très bonne', 'Excellente', 'Très excellente', 'Superbe', 'Parfaite'],
-            motivationAviron: ['', '', '', '', '', '', 'Aucune', 'Aucune', 'Très faible', 'Faible', 'Assez faible', 'Un peu motivé', 'Motivation moyenne', 'Correct', 'Assez motivé', 'Motivé', 'Bien motivé', 'Très motivé', 'Fortement motivé', 'Énormément motivé', 'Extrêmement motivé'],
-            motivationBusiness: ['', '', '', '', '', '', 'Aucune', 'Aucune', 'Très faible', 'Faible', 'Assez faible', 'Un peu motivé', 'Motivation moyenne', 'Correct', 'Assez motivé', 'Motivé', 'Bien motivé', 'Très motivé', 'Fortement motivé', 'Énormément motivé', 'Extrêmement motivé'],
-            qualiteInteractions: ['', '', '', '', '', '', 'Très mauvaises', 'Très mauvaises', 'Mauvaises', 'Peu satisfaisantes', 'Assez mauvaises', 'Moyennes', 'Interactions moyennes', 'Correctes', 'Assez bonnes', 'Bonnes', 'Très bonnes', 'Excellentes', 'Très excellentes', 'Superbes', 'Parfaites']
+            intensite: ['Très facile', 'Très facile', 'Facile', 'Facile', 'Modéré', 'Modéré', 'Difficile', 'Difficile', 'Très difficile', 'Très difficile', 'Maximal'],
+            fatigue: ['Pas fatigué', 'Très frais', 'Frais', 'Peu fatigué', 'Moyennement fatigué', 'Fatigué', 'Bien fatigué', 'Très fatigué', 'Épuisé', 'Épuisé', 'Complètement épuisé'],
+            stress: ['Aucun stress', 'Très détendu', 'Détendu', 'Un peu détendu', 'Stress modéré', 'Un peu stressé', 'Stressé', 'Bien stressé', 'Très stressé', 'Très stressé', 'Extrêmement stressé'],
+            clarteMentale: ['Esprit brouillé', 'Confusion', 'Peu clair', 'Assez confus', 'Clarté moyenne', 'Assez clair', 'Clair', 'Très clair', 'Esprit vif', 'Esprit vif', 'Esprit cristallin'],
+            energiePhysique: ['Aucune énergie', 'Très faible', 'Faible', 'Peu d\'énergie', 'Énergie moyenne', 'Correct', 'Bonne énergie', 'Très bonne énergie', 'Plein d\'énergie', 'Débordant', 'Maximum d\'énergie'],
+            humeur: ['Très mauvaise', 'Très mauvaise', 'Mauvaise', 'Pas top', 'Humeur moyenne', 'Correcte', 'Bonne', 'Très bonne', 'Excellente', 'Excellente', 'Parfaite'],
+            motivationAviron: ['Aucune', 'Aucune', 'Très faible', 'Faible', 'Motivation moyenne', 'Correct', 'Motivé', 'Bien motivé', 'Très motivé', 'Très motivé', 'Extrêmement motivé'],
+            motivationBusiness: ['Aucune', 'Aucune', 'Très faible', 'Faible', 'Motivation moyenne', 'Correct', 'Motivé', 'Bien motivé', 'Très motivé', 'Très motivé', 'Extrêmement motivé'],
+            qualiteInteractions: ['Très mauvaises', 'Très mauvaises', 'Mauvaises', 'Peu satisfaisantes', 'Interactions moyennes', 'Correctes', 'Bonnes', 'Très bonnes', 'Excellentes', 'Excellentes', 'Parfaites']
         };
 
         function updateSlider(id, value) {
@@ -725,8 +734,8 @@
                         <span class="left">Très facile</span>
                         <span class="right">Très intense</span>
                     </div>
-                    <input type="range" class="intensite" min="6" max="20" value="13">
-                    <div class="slider-value"><span class="intensiteValue">13</span>/20</div>
+                    <input type="range" class="intensite" min="0" max="10" value="5">
+                    <div class="slider-value"><span class="intensiteValue">5</span>/10</div>
                     <div class="slider-hint intensiteHint">Modéré</div>
                 </div>
                 <div class="field">
