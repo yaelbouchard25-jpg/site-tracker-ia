@@ -13,70 +13,51 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 100%);
+            background: #0a0a0a;
             min-height: 100vh;
             padding: 20px;
             color: #e0e0e0;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            background: linear-gradient(145deg, #1a1a1a 0%, #222 100%);
-            border-radius: 25px;
-            box-shadow: 0 25px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
-            padding: 50px;
-            border: 2px solid #333;
+            background: #1a1a1a;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            padding: 40px;
+            border: 1px solid #2a2a2a;
         }
 
         h1 {
             text-align: center;
-            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ffffff;
             margin-bottom: 10px;
-            font-size: 3.5em;
-            font-weight: 900;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            font-size: 2.5em;
         }
 
         .subtitle {
             text-align: center;
-            color: #ff416c;
-            margin-bottom: 50px;
-            font-size: 1.2em;
-            font-weight: 600;
-            letter-spacing: 2px;
+            color: #999;
+            margin-bottom: 40px;
+            font-size: 1.1em;
         }
 
         .section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: linear-gradient(145deg, #222 0%, #2a2a2a 100%);
-            border-radius: 20px;
-            border-left: 6px solid #ff416c;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(255, 65, 108, 0.2);
+            margin-bottom: 35px;
+            padding: 25px;
+            background: #222;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
         }
 
         .section-title {
-            font-size: 1.8em;
-            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 25px;
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-weight: 700;
+            gap: 10px;
         }
 
         .field {
@@ -221,20 +202,19 @@
 
         .add-sport-btn {
             padding: 12px 25px;
-            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            background: #667eea;
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
             font-size: 1em;
-            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.3);
         }
 
         .add-sport-btn:hover {
+            background: #764ba2;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 65, 108, 0.5);
         }
 
         .remove-sport-btn {
@@ -242,7 +222,7 @@
             background: #dc3545;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 5px;
             cursor: pointer;
             font-size: 0.9em;
             margin-top: 10px;
@@ -251,29 +231,26 @@
 
         .remove-sport-btn:hover {
             background: #c82333;
-            transform: translateY(-1px);
         }
 
         .generate-btn {
             width: 100%;
-            padding: 25px;
-            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 20px;
-            font-size: 1.6em;
-            font-weight: 900;
+            border-radius: 15px;
+            font-size: 1.4em;
+            font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 40px;
-            box-shadow: 0 15px 40px rgba(255, 65, 108, 0.4);
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
 
         .generate-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(255, 65, 108, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
         }
 
         .output-container {
@@ -417,7 +394,7 @@
 <body>
     <div class="container">
         <h1>⚔️ WAR TRACKER</h1>
-        <p class="subtitle">WIN AT REVENUE</p>
+        <p class="subtitle">Win At Revenue - Tracker Quotidien</p>
 
         <form id="trackerForm">
             <!-- DATE -->
@@ -838,10 +815,13 @@
             // Afficher un message de chargement
             const statusMsg = document.getElementById('statusMessage');
             statusMsg.style.display = 'block';
-            statusMsg.style.background = 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)';
+            statusMsg.style.background = '#667eea';
             statusMsg.style.color = 'white';
-            statusMsg.textContent = '⚔️ ENVOI EN COURS...';
+            statusMsg.textContent = '📤 Envoi en cours...';
             statusMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // Debug: Afficher les données envoyées
+            console.log('Données envoyées:', jsonData);
 
             // Envoyer au webhook n8n
             try {
@@ -853,9 +833,12 @@
                     body: JSON.stringify(jsonData)
                 });
 
+                console.log('Response status:', response.status);
+                console.log('Response OK:', response.ok);
+
                 if (response.ok) {
-                    statusMsg.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
-                    statusMsg.textContent = '⚔️ VICTOIRE ! DONNÉES ENVOYÉES';
+                    statusMsg.style.background = '#28a745';
+                    statusMsg.textContent = '✅ Rapport envoyé avec succès !';
                     // Réinitialiser le formulaire après 2 secondes
                     setTimeout(() => {
                         document.getElementById('trackerForm').reset();
@@ -868,12 +851,14 @@
                         statusMsg.style.display = 'none';
                     }, 2000);
                 } else {
-                    throw new Error('Erreur serveur');
+                    const errorText = await response.text();
+                    console.error('Erreur serveur:', errorText);
+                    throw new Error('Erreur serveur: ' + response.status);
                 }
             } catch (error) {
-                statusMsg.style.background = 'linear-gradient(135deg, #dc3545 0%, #c82333 100%)';
-                statusMsg.textContent = '❌ ÉCHEC DE L\'ENVOI - RÉESSAYER';
-                console.error('Erreur:', error);
+                statusMsg.style.background = '#dc3545';
+                statusMsg.textContent = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
+                console.error('Erreur complète:', error);
             }
         }
     </script>
