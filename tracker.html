@@ -498,21 +498,6 @@
                 <button type="button" class="add-sport-btn" onclick="addSportEntry()">➕ Ajouter une séance de sport</button>
             </div>
 
-            <!-- SOMMEIL -->
-            <div class="section">
-                <div class="section-title">😴 Sommeil</div>
-                <div class="field">
-                    <label>Comment vous êtes-vous senti au réveil ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Épuisé</span>
-                        <span class="right">En pleine forme</span>
-                    </div>
-                    <input type="range" id="sensationReveil" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="sensationReveilValue">13</span>/20</div>
-                    <div class="slider-hint" id="sensationReveilHint">Moyen</div>
-                </div>
-            </div>
-
             <!-- ÉTAT PHYSIQUE -->
             <div class="section">
                 <div class="section-title">💪 État physique</div>
@@ -572,16 +557,6 @@
                     <div class="slider-hint" id="humeurHint">Humeur moyenne</div>
                 </div>
                 <div class="field">
-                    <label>Êtes-vous irritable aujourd'hui ?</label>
-                    <div class="slider-labels">
-                        <span class="left">Très calme</span>
-                        <span class="right">Très irritable</span>
-                    </div>
-                    <input type="range" id="irritabilite" min="6" max="20" value="13">
-                    <div class="slider-value"><span id="irritabiliteValue">13</span>/20</div>
-                    <div class="slider-hint" id="irritabiliteHint">Moyennement irritable</div>
-                </div>
-                <div class="field">
                     <label>Quel est votre niveau de motivation pour l'aviron ?</label>
                     <div class="slider-labels">
                         <span class="left">Aucune motivation</span>
@@ -613,10 +588,6 @@
                 <div class="field">
                     <label>Quelle est la seule chose que j'aurais pu faire aujourd'hui qui si je l'avais fait je sois un champion et que tout le reste devienne facile ou inutile ?</label>
                     <textarea id="actionChampion" placeholder="La tâche prioritaire qui aurait tout changé..."></textarea>
-                </div>
-                <div class="field">
-                    <label>Quelle est la chose qui t'a libéré le plus de dopamine aujourd'hui ?</label>
-                    <textarea id="dopamine" placeholder="L'activité ou le moment le plus gratifiant..."></textarea>
                 </div>
                 <div class="field">
                     <label>Où as-tu perdu du temps aujourd'hui ? / Qu'est-ce qui a fait que tu n'as pas réussi ta todo aujourd'hui ?</label>
@@ -677,13 +648,11 @@
 
         const hints = {
             intensite: ['', '', '', '', '', '', 'Très facile', 'Très facile', 'Facile', 'Facile', 'Assez facile', 'Modéré', 'Assez modéré', 'Modéré', 'Difficile', 'Assez difficile', 'Difficile', 'Très difficile', 'Très difficile', 'Extrêmement difficile', 'Maximal'],
-            sensationReveil: ['', '', '', '', '', '', 'Épuisé', 'Très fatigué', 'Fatigué', 'Assez fatigué', 'Un peu fatigué', 'Moyen', 'Assez bien', 'Correct', 'Bien', 'Assez bien', 'Très bien', 'En forme', 'En pleine forme', 'Excellent', 'Parfait'],
             fatigue: ['', '', '', '', '', '', 'Pas fatigué', 'Très frais', 'Frais', 'Assez frais', 'Peu fatigué', 'Un peu fatigué', 'Moyennement fatigué', 'Fatigué', 'Bien fatigué', 'Assez épuisé', 'Très fatigué', 'Épuisé', 'Très épuisé', 'Extrêmement épuisé', 'Complètement épuisé'],
             stress: ['', '', '', '', '', '', 'Aucun stress', 'Très détendu', 'Détendu', 'Assez détendu', 'Un peu détendu', 'Neutre', 'Léger stress', 'Stress modéré', 'Un peu stressé', 'Stressé', 'Bien stressé', 'Très stressé', 'Fortement stressé', 'Énormément stressé', 'Extrêmement stressé'],
             clarteMentale: ['', '', '', '', '', '', 'Esprit brouillé', 'Très confus', 'Confusion', 'Peu clair', 'Assez confus', 'Un peu confus', 'Clarté moyenne', 'Assez clair', 'Clair', 'Bien clair', 'Très clair', 'Esprit vif', 'Très vif', 'Esprit affûté', 'Esprit cristallin'],
             energiePhysique: ['', '', '', '', '', '', 'Aucune énergie', 'Très faible', 'Faible', 'Assez faible', 'Peu d\'énergie', 'Un peu d\'énergie', 'Énergie moyenne', 'Correct', 'Assez bon', 'Bonne énergie', 'Très bonne énergie', 'Plein d\'énergie', 'Beaucoup d\'énergie', 'Débordant', 'Maximum d\'énergie'],
             humeur: ['', '', '', '', '', '', 'Très mauvaise', 'Très mauvaise', 'Mauvaise', 'Pas top', 'Assez mauvaise', 'Moyen', 'Humeur moyenne', 'Correcte', 'Assez bonne', 'Bonne', 'Très bonne', 'Excellente', 'Très excellente', 'Superbe', 'Parfaite'],
-            irritabilite: ['', '', '', '', '', '', 'Très calme', 'Très calme', 'Calme', 'Assez calme', 'Plutôt calme', 'Neutre', 'Légèrement irritable', 'Moyennement irritable', 'Un peu irritable', 'Irritable', 'Assez irritable', 'Très irritable', 'Fortement irritable', 'Énormément irritable', 'Extrêmement irritable'],
             motivationAviron: ['', '', '', '', '', '', 'Aucune', 'Aucune', 'Très faible', 'Faible', 'Assez faible', 'Un peu motivé', 'Motivation moyenne', 'Correct', 'Assez motivé', 'Motivé', 'Bien motivé', 'Très motivé', 'Fortement motivé', 'Énormément motivé', 'Extrêmement motivé'],
             motivationBusiness: ['', '', '', '', '', '', 'Aucune', 'Aucune', 'Très faible', 'Faible', 'Assez faible', 'Un peu motivé', 'Motivation moyenne', 'Correct', 'Assez motivé', 'Motivé', 'Bien motivé', 'Très motivé', 'Fortement motivé', 'Énormément motivé', 'Extrêmement motivé'],
             qualiteInteractions: ['', '', '', '', '', '', 'Très mauvaises', 'Très mauvaises', 'Mauvaises', 'Peu satisfaisantes', 'Assez mauvaises', 'Moyennes', 'Interactions moyennes', 'Correctes', 'Assez bonnes', 'Bonnes', 'Très bonnes', 'Excellentes', 'Très excellentes', 'Superbes', 'Parfaites']
@@ -696,9 +665,6 @@
             }
         }
 
-        document.getElementById('sensationReveil').addEventListener('input', function() {
-            updateSlider('sensationReveil', this.value);
-        });
         document.getElementById('fatigue').addEventListener('input', function() {
             updateSlider('fatigue', this.value);
         });
@@ -713,9 +679,6 @@
         });
         document.getElementById('humeur').addEventListener('input', function() {
             updateSlider('humeur', this.value);
-        });
-        document.getElementById('irritabilite').addEventListener('input', function() {
-            updateSlider('irritabilite', this.value);
         });
         document.getElementById('motivationAviron').addEventListener('input', function() {
             updateSlider('motivationAviron', this.value);
@@ -749,17 +712,11 @@
                     <label>Quel type de séance avez-vous fait ?</label>
                     <select class="typeSport" required>
                         <option value="">-- Sélectionner --</option>
-                        <option value="Entraînement">Entraînement</option>
-                        <option value="Match">Match</option>
-                        <option value="Repos">Repos</option>
-                        <option value="Récupération">Récupération</option>
-                        <option value="Musculation">Musculation</option>
                         <option value="Ergomètre">Ergomètre</option>
                         <option value="Bateau">Bateau</option>
+                        <option value="Musculation">Musculation</option>
                         <option value="Course à pied">Course à pied</option>
-                        <option value="Natation">Natation</option>
-                        <option value="Vélo">Vélo</option>
-                        <option value="Autre">Autre</option>
+                        <option value="Escalade">Escalade</option>
                     </select>
                 </div>
                 <div class="field">
@@ -800,19 +757,16 @@
         async function sendToWebhook() {
             const data = {
                 date: document.getElementById('date').value,
-                sensationReveil: parseInt(document.getElementById('sensationReveil').value),
                 fatigue: parseInt(document.getElementById('fatigue').value),
                 stress: parseInt(document.getElementById('stress').value),
                 clarteMentale: parseInt(document.getElementById('clarteMentale').value),
                 energiePhysique: parseInt(document.getElementById('energiePhysique').value),
                 humeur: parseInt(document.getElementById('humeur').value),
-                irritabilite: parseInt(document.getElementById('irritabilite').value),
                 motivationAviron: parseInt(document.getElementById('motivationAviron').value),
                 motivationBusiness: parseInt(document.getElementById('motivationBusiness').value),
                 qualiteInteractions: parseInt(document.getElementById('qualiteInteractions').value),
                 problemsBusiness: document.getElementById('problemsBusiness').value,
                 actionChampion: document.getElementById('actionChampion').value,
-                dopamine: document.getElementById('dopamine').value,
                 tempsPerdu: document.getElementById('tempsPerdu').value,
                 repasDejeuner: document.getElementById('repasDejeuner').value,
                 repasSoir: document.getElementById('repasSoir').value,
@@ -853,9 +807,6 @@
                 } : {
                     statut: "Repos"
                 },
-                sommeil: {
-                    sensationReveil: data.sensationReveil
-                },
                 etatPhysique: {
                     fatigue: data.fatigue
                 },
@@ -864,14 +815,12 @@
                     clarteMentale: data.clarteMentale,
                     energiePhysique: data.energiePhysique,
                     humeur: data.humeur,
-                    irritabilite: data.irritabilite,
                     motivationAviron: data.motivationAviron,
                     motivationBusiness: data.motivationBusiness
                 },
                 business: {
                     problemesRencontres: data.problemsBusiness || '',
                     actionChampion: data.actionChampion || '',
-                    dopamine: data.dopamine || '',
                     tempsPerdu: data.tempsPerdu || ''
                 },
                 relations: {
